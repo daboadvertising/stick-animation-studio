@@ -1,0 +1,10 @@
+{
+  "title": "5 Signs You Have Quiet Confidence",
+  "duration": "10:37",
+  "concepts": [
+    { "layout": "versus", "left": "LOUD", "vs": "≠", "right": "CONFIDENT", "leftFace": "shout", "rightFace": "calm" },
+    { "layout": "badge", "badge": "#3", "top": "MOST PEOPLE", "bottom": "MISS THIS", "face": "calm" },
+    { "layout": "checklist", "title1": "DO YOU", "title2": "HAVE IT?", "items": ["NO NEED TO WIN", "OK WITH SILENCE", "\"I DON'T KNOW\"", "SAYS NO", "STEADY WORTH"], "mark": 2, "face": "smirk" },
+    { "layout": "headline", "line1": "QUIET", "line2": "WINS.", "small": "THE PSYCHOLOGY OF REAL CONFIDENCE", "face": "calm" }
+  ]
+}

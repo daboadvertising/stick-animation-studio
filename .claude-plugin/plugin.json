@@ -1,0 +1,19 @@
+{
+  "name": "stick-animation-studio",
+  "version": "0.2.0",
+  "description": "Turn a voiceover into a finished stick-figure YouTube video: topic ideas, retention-first scripts with open loops, voiceover alignment, hand-designed animation (16:9 or 9:16), StoryScene thumbnails, titles/description and hook Shorts.",
+  "author": {
+    "name": "StickSense"
+  },
+  "keywords": [
+    "youtube",
+    "animation",
+    "stick figure",
+    "faceless channel",
+    "script",
+    "thumbnails",
+    "shorts"
+  ],
+  "license": "MIT",
+  "icon": ".claude-plugin/icon.png"
+}

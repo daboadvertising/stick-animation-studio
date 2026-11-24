@@ -1,0 +1,25 @@
+// short.js — 60 s vertical teaser for "5 Signs You Have Quiet Confidence" (1080x1920)
+import { ease, prog, rr, text, FONTS, lerp, clamp } from '/engine/core.js';
+import { shot } from '../lib/engine.js';
+const ACC = '#f07a1a', INK = '#141414', GY = 1536;
+const HEAD = { t: 'pill', s: '5 SIGNS OF QUIET CONFIDENCE', x: 540, y: 140, at: 0, bg: INK, size: 38 };
+const Q = (x, o = {}) => ({ who: 'QUIET', x, s: 2.0, e: 'smile', ...o });
+const LD = (x, o = {}) => ({ who: 'LOUD', x, s: 2.0, e: 'joy', ...o });
+const P_ = (who, x, o = {}) => ({ who, x, s: 1.9, e: 'neutral', ...o });
+const pill = (s, at, x, y, o = {}) => ({ t: 'pill', s, at, x, y, bg: o.bg || INK, size: o.size || 46 });
+const title = (s, at, y, o = {}) => ({ t: 'title', s, at, x: 540, y, col: o.col || INK, size: o.size || 100, maxW: 980 });
+const bub = (s, at, x, y, o = {}) => ({ t: 'bubble', s, at, x, y, tail: o.tail ?? -1, size: o.size || 42 });
+const S = [
+/*q01*/ { set: 'party', cam: { z: [1.0, 1.06] }, figs: [LD(300, { p: 'explain' }), Q(820, { f: -1, p: 'relaxed' })], fx: [HEAD, { t: 'shout', x: 380, y: 1040, at: 0 }, { t: 'serif', s: 'The most confident person in the room…', x: 540, y: 380, at: 0.1, size: 62 }, title('…IS RARELY THE LOUDEST.', 'w:rarely', 520, { col: ACC, size: 84 })] },
+/*q02*/ { set: 'dinner', cam: { x: [380, 420] }, figs: [P_('FRIEND', 620, { p: 'sit', y: GY - 90, e: 'sad' }), LD(940, { p: 'sit', y: GY - 90, s: 1.9 }), P_('GLASSES', 1260, { p: 'sit', f: -1, y: GY - 90, e: 'confused' })], fx: [HEAD, { t: 'shout', x: 620, y: 1080, at: 0 }, bub('BLAH BLAH BLAH…', 'w:talked', 540, 520), bub('ACTUALLY, I\'M RIGHT.', 'w:win', 600, 700), pill('TALKS OVER EVERYONE', 'w:talked', 540, 360, { bg: ACC })] },
+/*q03*/ { set: 'party', cam: { z: [1.05, 1.15] }, figs: [Q(540, { s: 2.4, p: 'relaxed', e: 'smile' })], fx: [HEAD, title('ANOTHER PERSON…', 'w:another', 330, { size: 80 }), pill('CALM', 'w:calm', 300, 500), pill('LISTENING', 'w:listening', 760, 500), pill('SMILING A LITTLE', 'w:smiling', 540, 640), pill('AT EASE', 'w:ease', 540, 780, { bg: ACC })] },
+/*q04*/ { set: 'party', figs: [P_('FRIEND', 180, { e: 'happy' }), Q(540, { f: -1, p: 'talk' }), P_('GLASSES', 900, { f: -1, e: 'happy' })], fx: [HEAD, { t: 'icon', k: 'heart', x: 540, y: 720, s: 1.1, at: 'w:trusted', bob: 1 }, { t: 'label', s: 'THE ONE PEOPLE TRUSTED MOST', x: 540, y: 330, at: 'w:trusted', col: INK, size: 44 }, title('QUIET CONFIDENCE.', 'w:quiet', 470, { col: ACC, size: 96 })] },
+/*q05*/ { set: 'board', fx: [HEAD, { t: 'label', s: 'A WELL-KNOWN STUDY', x: 540, y: 360, at: 0.1, col: INK, size: 46 }, { t: 'date', s: '2000', sub: 'CORNELL UNIVERSITY', x: 540, y: 640, at: 'w:cornell' }, { t: 'name', n: 'THOMAS GILOVICH', r: 'PSYCHOLOGIST', x: 540, y: 980, at: 'w:gilovich' }] },
+/*q06*/ { set: 'board', figs: [P_('PLAIN', 0, { walk: [100, 560, 0.2, 3.6], e: 'nervous', sweat: 1, items: ['hair'], s: 2.1 })], fx: [HEAD, pill('THE EMBARRASSING T-SHIRT', 'w:embarrassing', 540, 420, { bg: ACC, size: 42 }), { t: 'fn', f: (g, t) => { const x = lerp(100, 560, ease.inOut(clamp((t - 0.2) / 3.4))); rr(g, x - 32, GY - 340, 64, 88, 12); g.fillStyle = ACC; g.fill(); text(g, '☹', x, GY - 296, { size: 42, color: '#fff', font: FONTS.ui, weight: 900 }); } }, { t: 'label', s: 'WALK INTO A ROOM WEARING…', x: 540, y: 300, at: 0.1, col: INK, size: 42 }] },
+/*q07*/ { set: 'board', fx: [HEAD, title('HOW MANY NOTICED?', 0.1, 330, { size: 84 }), { t: 'bars2', y: 1300, x: 300, gap: 480, h: 1100, items: [{ v: 0.5, val: '≈ HALF', lab: 'THEY GUESSED', at: 'w:guessed', col: '#9a9488' }, { v: 0.25, val: '≈ A QUARTER', lab: 'ACTUALLY NOTICED', at: 'w:reality' }] }] },
+/*q08*/ { set: 'stage', so: { spot: 540 }, figs: [P_('PLAIN', 540, { e: 'nervous', sweat: 1, s: 2.1 })], fx: [HEAD, title('THE SPOTLIGHT EFFECT', 'w:spotlight', 360, { col: ACC, size: 76 }), { t: 'label', s: 'NOBODY IS WATCHING AS CLOSELY', x: 540, y: 480, at: 'w:overestimate', col: '#f4efe4', size: 38 }, { t: 'label', s: 'AS YOU THINK.', x: 540, y: 540, at: 'w:overestimate', col: '#f4efe4', size: 38 }] },
+/*q09*/ { set: 'board', fx: [HEAD, { t: 'sign', n: 3, s: 'ALMOST EVERYONE MISSES IT', at: 0.1, subAt: 'w:almost', x: 540, y: 700, size: 70 }, { t: 'icon', k: 'question', x: 780, y: 470, s: 1.1, at: 0.6, bob: 1 }] },
+/*q10*/ { set: 'dark', fx: [{ t: 'title', s: 'WHAT IS SIGN #3?', x: 540, y: 560, at: 0.05, col: '#ffffff', size: 110 }, { t: 'label', s: '+ 4 MORE SIGNS OF QUIET CONFIDENCE', x: 540, y: 720, at: 0.4, col: '#cfc7b8', size: 38 },
+  { t: 'pill', s: '▶  WATCH THE FULL VIDEO', x: 540, y: 1000, at: 0.8, bg: ACC, size: 56 }, { t: 'fn', f: (g, t) => { if (t < 1.1) return; g.save(); g.font = '700 80px Fredoka'; const w1 = g.measureText('STICK').width, w2 = g.measureText('SENSE').width; g.textBaseline = 'middle'; g.fillStyle = '#fff'; g.fillText('STICK', 540 - (w1 + w2) / 2, 1250); g.fillStyle = ACC; g.fillText('SENSE', 540 - (w1 + w2) / 2 + w1, 1250); g.restore(); } }] },
+];
+S.forEach((sp, i) => shot('q' + String(i + 1).padStart(2, '0'), sp));

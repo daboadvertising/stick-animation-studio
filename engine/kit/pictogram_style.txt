@@ -1,0 +1,14 @@
+  pictogram: {
+    name: 'Pictogram Clean', desc: 'Bright infographic look: off-white backgrounds, flat light-grey shapes, solid black pictogram figures, orange accents.',
+    ink: '#141414', inkFar: '#3a3a3a', feature: '#ffffff', rimWidth: 0,
+    ui: { ...UI, card: '#ffffff', cardLine: '#d9d3c7', text: '#2a2a2a', sub: '#8a8478', accent: '#f07a1a', gold: '#f07a1a', cream: '#1c1c1c', blueprint: '#2b2b2b', bpBg: '#f6f3ee', good: '#f07a1a' },
+    grade: { contrast: 1.0, sat: 1.0, lift: [0, 0, 0], gamma: [1, 1, 1], gain: [1, 1, 1], vignette: 0.08, grain: 0.012, bloom: 0 },
+    moods: {},
+  },
+  noir: {
+    name: 'StickSense Noir', desc: 'Black background, white pictogram figures, red accents only.',
+    ink: '#141414', inkFar: '#3a3a3a', feature: '#ffffff', rimWidth: 0,
+    ui: { ...UI, card: '#ffffff', cardLine: '#d9d3c7', text: '#2a2a2a', sub: '#8a8478', accent: '#e8141e', gold: '#e8141e', cream: '#1c1c1c', blueprint: '#2b2b2b', bpBg: '#f6f3ee', good: '#f07a1a' },
+    grade: { contrast: 1.0, sat: 1.0, lift: [0, 0, 0], gamma: [1, 1, 1], gain: [1, 1, 1], vignette: 0.12, grain: 0, bloom: 0 },
+    moods: {},
+  },

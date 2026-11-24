@@ -1,0 +1,11 @@
+{
+  "name_left": "STICK",
+  "name_right": "SENSE",
+  "channel_name": "StickSense",
+  "tagline": "Big ideas. Simple sticks.",
+  "accent": "#e8141e",
+  "theme": "noir",
+  "language": "English (UK spelling)",
+  "voice": "Natural storyteller: contractions, 'you' and 'I', honest reactions, light humour, varied rhythm.",
+  "rules": ["Facts must be accurate; real accounts only; flag theories and approximate dates", "No chapter cards", "Thumbnails: StoryScene formula"]
+}

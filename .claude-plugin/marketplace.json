@@ -1,0 +1,14 @@
+{
+  "name": "stick-animation-studio",
+  "owner": {
+    "name": "StickSense"
+  },
+  "plugins": [
+    {
+      "name": "stick-animation-studio",
+      "source": "./",
+      "description": "Voiceover \u2192 finished stick-figure YouTube video, thumbnails and Shorts."
+    }
+  ],
+  "description": "Free (MIT) Claude Code plugin: voiceover to finished stick-figure YouTube video, thumbnails and Shorts."
+}

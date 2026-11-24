@@ -1,0 +1,32 @@
+{
+ "title": "The 5,300-Year-Old Murder: \u00d6tzi the Iceman",
+ "duration": "10:08",
+ "concepts": [
+  {
+   "layout": "brw_xray",
+   "line1": "HE WAS",
+   "line2": "MURDERED.",
+   "small": "5,300 YEARS AGO \u00b7 \u00d6TZI THE ICEMAN"
+  },
+  {
+   "layout": "brw_headline",
+   "line1": "FROZEN FOR",
+   "line2": "5,300 YEARS.",
+   "small": "A MURDER IN THE ALPS",
+   "face": "shock"
+  },
+  {
+   "layout": "brw_badge",
+   "badge": "5,300",
+   "top": "YEAR-OLD",
+   "bottom": "MURDER",
+   "face": "shock"
+  },
+  {
+   "layout": "brw_iceman",
+   "line1": "WHO SHOT",
+   "line2": "HIM?",
+   "small": "5,300 YEARS AGO"
+  }
+ ]
+}
