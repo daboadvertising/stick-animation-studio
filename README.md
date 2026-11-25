@@ -1,13 +1,40 @@
 # Stick Animation Studio (Claude Code plugin)
 
-This plugin turns Claude into a faceless YouTube studio. You record the voiceover, and Claude does the rest:
+![Stick Animation Studio demo: four moments from a finished video made with the plugin](docs/demo.gif)
+
+*Frames from "The 5,300-Year-Old Murder: Ötzi the Iceman", a 10-minute video made start to finish with this plugin.*
+
+This free plugin turns Claude into a faceless YouTube studio. You record the voiceover, and Claude does the rest:
 
 **topic ideas → retention-first script (open loops, natural voice) → aligned, hand-designed stick-figure animation (16:9 or 9:16) → StoryScene thumbnails → titles, description and tags → a hook Short.**
+
+## How it works
+
+```mermaid
+flowchart LR
+    A["Pick a topic<br/>/scriptforge"] --> B["Write the script<br/>/script"]
+    B --> C["You record<br/>the voiceover"]
+    C --> D["Align every word<br/>to the audio"]
+    D --> E["Claude designs<br/>every shot"]
+    E --> F["Preview sheets<br/>and fixes"]
+    F --> G["Render video<br/>+ music + SFX"]
+    G --> H["Thumbnails, titles,<br/>description, Short"]
+```
+
+1. **Script.** Claude pitches 10 ideas in your niche and writes a ~1,750-word script in a natural storyteller voice. It uses *open loops* (questions planted early and paid off later) to keep people watching, and it sticks to documented facts with theories flagged.
+2. **Voiceover.** You record the script in your own voice, or with any text-to-speech tool, and hand Claude the MP3.
+3. **Alignment.** An offline speech recogniser (PocketSphinx) finds when every word is spoken. The narration is cut into shots of about 5 seconds at sentence boundaries.
+4. **Scene design.** Claude writes each shot as a small piece of code: the setting, stick figures with poses and expressions, props, maps, counters and on-screen text. Every animation is timed to the exact word it illustrates (`at: 'w:arrowhead'`). It's not stock footage or AI video: every frame is drawn from code, so it's consistent, sharp and editable.
+5. **QC.** Contact sheets show one still per shot. Claude checks them for overlaps, off-screen text and errors, and fixes problems before rendering.
+6. **Render.** A headless browser draws every frame on a canvas. ffmpeg encodes the frames in parallel and adds a generated music bed that dips under your voice, sound effects, and a final mix at −14 LUFS (YouTube's loudness target).
+7. **Package.** StoryScene thumbnails (a key scene with a red arrow on the clue), A/B variants, a phone-size feed preview, titles, a description with timestamps and sources, tags, and a standalone 9:16 hook Short.
+
+Your brand comes from one file, `channel.json`: the logo text, accent colour, tagline, voice and house rules. Change it and every video, end card and thumbnail follows.
 
 ## 5-minute quickstart
 1. **Install the plugin.** In Claude Code, run:
    ```
-   /plugin marketplace add <this repo or folder>
+   /plugin marketplace add daboadvertising/stick-animation-studio
    /plugin install stick-animation-studio@stick-animation-studio
    ```
 2. **Set up the engine:** run `/stick-animation-studio:setup`. It checks Python, Node and ffmpeg, then installs the speech aligner and the built-in renderer (headless Chromium). Everything is included: there's nothing else to download by hand.
