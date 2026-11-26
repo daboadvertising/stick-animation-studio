@@ -39,3 +39,12 @@ After changing `channel.json`, run `python3 "$ENGINE/ss.py" install` again.
 ## 3. Noir theme notes
 The noir theme remaps every finished frame: light becomes black, dark ink becomes white, and warm saturated colours become the accent.
 So design with INK outlines and `ACC` accents. Pale pastels on light sets turn into dark grey. `dark`, `stage` and `cinema` sets aren't inverted.
+
+## 4. Package format (fixed, do not change)
+Deliver every package in the chat, never as .md files, in this order:
+1. **The Short**: beats, loudness, title (#shorts), caption, and a reminder to set "Related video". Send the Short MP4.
+2. **Thumbnails**: A (StoryScene, lead), B (classic), C (classic badge), the Shorts cover and the feed preview, with "test A vs B first". Send the PNGs.
+3. **Titles**: three titles under each thumbnail (A, B, C), with that thumbnail's text shown. Mark the lead. Titles complement the thumbnail text and never repeat it. Keep the lead title fixed while testing thumbnails.
+4. **Description**: one copy-ready code block containing the hook, timestamps (from shot start times), sources, accuracy notes, the comment question, the subscribe line and hashtags.
+5. **Tags**: one copy-ready, comma-separated code block.
+6. **Closing**: an honest note on click-through rate (no guarantees) and the channel-growth check-in, if the creator tracks one.
