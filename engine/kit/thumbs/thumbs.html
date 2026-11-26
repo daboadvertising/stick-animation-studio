@@ -233,7 +233,35 @@ function L_brw_iceman(g,o){g.fillStyle=BK;g.fillRect(0,0,1280,720);
  // big red arrow pointing at the wound
  g.save();g.translate(450,300);g.rotate(0.80);g.fillStyle=RD;g.beginPath();g.moveTo(0,-26);g.lineTo(170,-26);g.lineTo(170,-62);g.lineTo(260,0);g.lineTo(170,62);g.lineTo(170,26);g.lineTo(0,26);g.closePath();g.fill();g.restore();
  brwT(g,o.line1,40,130,fit(g,o.line1,130,640),WH);brwT(g,o.line2,40,265,fit(g,o.line2,150,520),RD);if(o.small){rr(g,40,300,fit(g,o.small,34,420,'N',900)*o.small.length*0.62+40,58,10);g.fillStyle=WH;g.fill();brwT(g,o.small,60,342,fit(g,o.small,32,420,'N',900),BK,{f:'N',w:900})}}
+
+function L_brw_synod(g,o){g.fillStyle=BK;g.fillRect(0,0,1280,720);
+ // basilica: apse arch + left columns, floor
+ g.strokeStyle=WH;g.lineWidth=7;g.beginPath();g.moveTo(560,660);g.lineTo(560,260);g.arc(800,260,240,Math.PI,0);g.lineTo(1040,660);g.stroke();
+ g.strokeStyle='#ffffff55';g.lineWidth=4;g.beginPath();g.moveTo(600,660);g.lineTo(600,270);g.arc(800,270,200,Math.PI,0);g.lineTo(1000,660);g.stroke();
+ seg(g,[[800,70],[800,150]],9,WH);seg(g,[[770,98],[830,98]],9,WH);
+ seg(g,[[0,660],[1280,660]],7,WH);
+ const cand=(x,y)=>{seg(g,[[x,y],[x,y-60]],12,WH);g.fillStyle=RD;g.beginPath();g.ellipse(x,y-78,9,17,0,0,7);g.fill();};cand(470,660);cand(1110,600);
+ // throne
+ g.beginPath();g.moveTo(660,660);g.lineTo(660,300);g.lineTo(700,250);g.lineTo(800,230);g.lineTo(900,250);g.lineTo(940,300);g.lineTo(940,660);g.closePath();g.fillStyle=BK;g.fill();g.strokeStyle=WH;g.lineWidth=9;g.stroke();
+ seg(g,[[630,520],[970,520]],16,WH);seg(g,[[640,520],[640,660]],12,WH);seg(g,[[960,520],[960,660]],12,WH);
+ // the corpse: white robe, red pallium, head lolling, mitre askew
+ g.beginPath();g.moveTo(745,350);g.lineTo(855,350);g.lineTo(890,660);g.lineTo(710,660);g.closePath();g.fillStyle=WH;g.fill();
+ seg(g,[[752,356],[800,410],[848,356]],12,RD);seg(g,[[800,410],[800,650]],12,RD);
+ seg(g,[[748,360],[690,440],[684,510]],22,WH);seg(g,[[852,360],[910,440],[916,510]],22,WH);
+ g.save();g.translate(800,345);g.rotate(0.38);seg(g,[[0,0],[0,-26]],24,WH);g.fillStyle=WH;g.beginPath();g.arc(0,-62,38,0,7);g.fill();
+ seg(g,[[-21,-64],[-7,-62]],5,BK);seg(g,[[7,-62],[21,-60]],5,BK);seg(g,[[-10,-40],[10,-41]],5,BK);
+ g.save();g.translate(0,-92);g.rotate(0.15);g.beginPath();g.moveTo(-32,8);g.lineTo(-30,-48);g.lineTo(0,-80);g.lineTo(30,-48);g.lineTo(32,8);g.closePath();g.fillStyle=WH;g.fill();g.strokeStyle=BK;g.lineWidth=5;g.stroke();seg(g,[[0,-72],[0,4]],8,RD);seg(g,[[-30,-6],[30,-6]],8,RD);g.restore();g.restore();
+ // the deacon beside him, leaning in, hand to mouth (the clue)
+ const dx=1040;g.beginPath();g.moveTo(dx-30,430);g.lineTo(dx+24,430);g.lineTo(dx+46,660);g.lineTo(dx-58,660);g.closePath();g.fillStyle=WH;g.fill();
+ g.fillStyle=WH;g.beginPath();g.arc(dx-18,392,32,0,7);g.fill();seg(g,[[dx-6,440],[dx-40,470],[dx-46,412]],18,WH);
+ g.fillStyle=BK;g.beginPath();g.arc(dx-34,386,5,0,7);g.fill();g.beginPath();g.arc(dx-14,388,5,0,7);g.fill();
+ // red circle + arrow on the deacon
+ g.strokeStyle=RD;g.lineWidth=10;g.beginPath();g.arc(dx-22,400,66,0,7);g.stroke();
+ g.save();g.translate(1250,160);g.rotate(2.2);g.fillStyle=RD;g.beginPath();g.moveTo(0,-24);g.lineTo(120,-24);g.lineTo(120,-58);g.lineTo(200,0);g.lineTo(120,58);g.lineTo(120,24);g.lineTo(0,24);g.closePath();g.fill();g.restore();
+ brwT(g,o.line1,40,130,fit(g,o.line1,130,520),WH);brwT(g,o.line2,40,265,fit(g,o.line2,130,560),RD);
+ if(o.small){g.font='900 32px N';const w=g.measureText(o.small).width+40;rr(g,40,300,w,58,10);g.fillStyle=WH;g.fill();g.fillStyle=BK;g.textBaseline='middle';g.fillText(o.small,60,331);}
+}
 Promise.all(['700 40px F','900 40px N','italic 900 40px P'].map(f=>document.fonts.load(f))).then(()=>{
- const L={versus:L_versus,badge:L_badge,checklist:L_checklist,headline:L_headline,tag:L_tag,decoy:L_decoy,phonetrap:L_phonetrap,brw_headline:L_brw_headline,brw_phonetrap:L_brw_phonetrap,brw_badge:L_brw_badge,brw_gear:L_brw_gear,brw_book:L_brw_book,brw_ships:L_brw_ships,brw_domino:L_brw_domino,brw_letter:L_brw_letter,brw_reaction:L_brw_reaction,brw_tablet:L_brw_tablet,brw_helmet:L_brw_helmet,brw_rock:L_brw_rock,brw_xray:L_brw_xray,brw_iceman:L_brw_iceman};
+ const L={versus:L_versus,badge:L_badge,checklist:L_checklist,headline:L_headline,tag:L_tag,decoy:L_decoy,phonetrap:L_phonetrap,brw_headline:L_brw_headline,brw_phonetrap:L_brw_phonetrap,brw_badge:L_brw_badge,brw_gear:L_brw_gear,brw_book:L_brw_book,brw_ships:L_brw_ships,brw_domino:L_brw_domino,brw_letter:L_brw_letter,brw_reaction:L_brw_reaction,brw_tablet:L_brw_tablet,brw_helmet:L_brw_helmet,brw_rock:L_brw_rock,brw_xray:L_brw_xray,brw_iceman:L_brw_iceman,brw_synod:L_brw_synod};
  (SPEC.concepts||[]).forEach((c,i)=>{const g=mk('t'+(i+1));L[c.layout](g,c)});window.DONE=true;});
 </script></body></html>
