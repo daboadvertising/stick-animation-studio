@@ -17,6 +17,7 @@ import * as IN from './india.js';
 import * as AL from './alps.js';
 import * as SY from './synod.js';
 import * as AG from './agincourt.js';
+import * as LV from './louvre.js';
 import { CHANNEL } from './channel.js';
 export const ACC = '#f07a1a', INK = '#141414', W = () => E.W, H = () => E.H;
 export const CAST = { QUIET: { item: 'scarf' }, LOUD: { items: ['tie', 'hair'] }, FRIEND: { items: ['bun'] }, BOSS: { items: ['tie', 'glasses'] }, LINCOLN: { items: ['tophat'] }, LINCOLNBARE: {}, MARY: { items: ['dress', 'ponytail'] }, BOOTH: { items: ['slouch'] }, RATHBONE: { items: ['kepi'] }, SOLDIER: { items: ['kepi'] }, SEWARD: { items: ['jawframe'] }, POWELL: {}, JOHNSON: { items: ['glasses'] }, SHERMAN: { items: ['kepi'] }, WOMAN: { items: ['dress', 'ponytail'] }, YOU: { item: 'scarf' }, SENECA: { items: ['toga'] }, NERO: { items: ['toga', 'laurel'], trim: R.purple }, CLAUDIUS: { items: ['toga', 'laurel'], trim: R.red }, PAULINUS: { items: ['toga'], trim: R.gold },
@@ -32,7 +33,7 @@ const SETS = { forum, study, island, palace, port, garden, bedroom: (g, t, c, o)
   theatre: Q.theatre, box: Q.box, corridor: Q.corridor, dcstreet: Q.dcstreet, room: Q.room, bar: Q.bar, whitehouse: Q.whitehouse, capitol: Q.capitol, congress: Q.congress, train: Q.train, coast: Q.coast, town: Q.town, field: Q.field,
   europemap: (g) => CX.europeMap(g),
   emed: (g, t, c, o) => BZ.emedMap(g, t, c, o), harbour: BZ.harbour, citadel: BZ.citadel, pylon: BZ.pylon, drought: BZ.drought, cliffs: BZ.cliffs, pass: GR.pass, ridge: GR.ridge, camp: GR.camp, acropolis: GR.acropolis, plain: GR.plain, hill: GR.hill, india: (g, t, c, o) => IN.indiaMap(g, t, c, o), court: IN.court, plainindia: IN.plainIndia, alps: AL.alps, coldroom: AL.coldroom, evidence: AL.evidence,
-  mudfield: AG.mudfield, battlemap: AG.battlemap, nfrance: AG.nfrance, harfleur: AG.harfleur, camp: AG.camp, basilica: SY.basilica, crypt: SY.crypt, tiber: SY.tiber, prison: SY.prison, stpeters: SY.stpeters, italy: (g, t, c, o) => SY.italy(g, t, c, o),
+  gallery: LV.gallery, stairwell: LV.stairwell, paris: LV.paris, garret: LV.garret, records: LV.records, hotel: LV.hotel, mudfield: AG.mudfield, battlemap: AG.battlemap, nfrance: AG.nfrance, harfleur: AG.harfleur, camp: AG.camp, basilica: SY.basilica, crypt: SY.crypt, tiber: SY.tiber, prison: SY.prison, stpeters: SY.stpeters, italy: (g, t, c, o) => SY.italy(g, t, c, o),
   stormsea: AN.stormsea, seabed: AN.seabed, museum: AN.museum, greecemap: (g) => AN.greeceMap(g),
   techoffice: TC.techoffice, oldlab: TC.oldlab,
   mall: SH.mall, cinema: SH.cinema, checkout: SH.checkout, forest: SH.forest,
