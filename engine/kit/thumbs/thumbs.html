@@ -261,7 +261,32 @@ function L_brw_synod(g,o){g.fillStyle=BK;g.fillRect(0,0,1280,720);
  brwT(g,o.line1,40,130,fit(g,o.line1,130,520),WH);brwT(g,o.line2,40,265,fit(g,o.line2,130,560),RD);
  if(o.small){g.font='900 32px N';const w=g.measureText(o.small).width+40;rr(g,40,300,w,58,10);g.fillStyle=WH;g.fill();g.fillStyle=BK;g.textBaseline='middle';g.fillText(o.small,60,331);}
 }
+
+function L_brw_agincourt(g,o){g.fillStyle=BK;g.fillRect(0,0,1280,720);
+ // rain + treeline
+ g.strokeStyle='#ffffff40';g.lineWidth=3;for(let i=0;i<70;i++){const x=(i*97)%1300,y=(i*53)%460;g.beginPath();g.moveTo(x,y);g.lineTo(x-8,y+32);g.stroke();}
+ for(let i=0;i<6;i++){const x=980+i*60;seg(g,[[x,470],[x,410]],8,WH);g.strokeStyle=WH;g.lineWidth=6;g.beginPath();g.arc(x,385,38,0,7);g.stroke();}
+ // stakes + archer silhouettes (right, small)
+ for(let i=0;i<5;i++){const x=960+i*50;seg(g,[[x,520],[x-40,470]],8,WH);}
+ // mud surface
+ g.fillStyle='#5a5a5a';g.fillRect(0,560,1280,160);seg(g,[[0,560],[1280,560]],7,WH);
+ for(let i=0;i<8;i++){g.strokeStyle=WH;g.lineWidth=4;g.beginPath();g.ellipse(120+i*160,620+(i%2)*40,50,9,0,0,Math.PI);g.stroke();}
+ // the knight, sunk to the knees: plate body + great helm
+ const kx=700;seg(g,[[kx-22,560],[kx-12,470]],34,WH);seg(g,[[kx+22,560],[kx+12,470]],34,WH);
+ g.fillStyle=WH;g.beginPath();g.moveTo(kx-48,470);g.lineTo(kx+48,470);g.lineTo(kx+40,300);g.lineTo(kx-40,300);g.closePath();g.fill();
+ for(let i=0;i<4;i++)seg(g,[[kx-38,330+i*34],[kx+38,330+i*34]],5,BK);
+ seg(g,[[kx-40,315],[kx-110,380],[kx-150,330]],26,WH);seg(g,[[kx+40,315],[kx+100,390],[kx+90,450]],26,WH);
+ g.fillStyle=WH;g.beginPath();g.ellipse(kx,245,46,54,0,0,7);g.fill();seg(g,[[kx-2,236],[kx+40,236]],7,BK);seg(g,[[kx-2,252],[kx+40,252]],7,BK);
+ g.beginPath();g.moveTo(kx-8,190);g.lineTo(kx+8,190);g.lineTo(kx,172);g.closePath();g.fill();
+ // mud splashes over the legs
+ g.fillStyle='#5a5a5a';g.beginPath();g.ellipse(kx,565,90,22,0,0,7);g.fill();g.strokeStyle=WH;g.lineWidth=5;g.beginPath();g.ellipse(kx,565,90,22,0,Math.PI,0);g.stroke();
+ // red circle on the sinking legs + arrow
+ g.strokeStyle=RD;g.lineWidth=10;g.beginPath();g.ellipse(kx,548,120,70,0,0,7);g.stroke();
+ g.save();g.translate(1080,320);g.rotate(2.47);g.fillStyle=RD;g.beginPath();g.moveTo(0,-24);g.lineTo(200,-24);g.lineTo(200,-60);g.lineTo(290,0);g.lineTo(200,60);g.lineTo(200,24);g.lineTo(0,24);g.closePath();g.fill();g.restore();
+ brwT(g,o.line1,40,130,fit(g,o.line1,130,560),WH);brwT(g,o.line2,40,265,fit(g,o.line2,140,560),RD);
+ if(o.small){g.font='900 32px N';const w=g.measureText(o.small).width+40;rr(g,40,300,w,58,10);g.fillStyle=WH;g.fill();g.fillStyle=BK;g.textBaseline='middle';g.fillText(o.small,60,331);}
+}
 Promise.all(['700 40px F','900 40px N','italic 900 40px P'].map(f=>document.fonts.load(f))).then(()=>{
- const L={versus:L_versus,badge:L_badge,checklist:L_checklist,headline:L_headline,tag:L_tag,decoy:L_decoy,phonetrap:L_phonetrap,brw_headline:L_brw_headline,brw_phonetrap:L_brw_phonetrap,brw_badge:L_brw_badge,brw_gear:L_brw_gear,brw_book:L_brw_book,brw_ships:L_brw_ships,brw_domino:L_brw_domino,brw_letter:L_brw_letter,brw_reaction:L_brw_reaction,brw_tablet:L_brw_tablet,brw_helmet:L_brw_helmet,brw_rock:L_brw_rock,brw_xray:L_brw_xray,brw_iceman:L_brw_iceman,brw_synod:L_brw_synod};
+ const L={versus:L_versus,badge:L_badge,checklist:L_checklist,headline:L_headline,tag:L_tag,decoy:L_decoy,phonetrap:L_phonetrap,brw_headline:L_brw_headline,brw_phonetrap:L_brw_phonetrap,brw_badge:L_brw_badge,brw_gear:L_brw_gear,brw_book:L_brw_book,brw_ships:L_brw_ships,brw_domino:L_brw_domino,brw_letter:L_brw_letter,brw_reaction:L_brw_reaction,brw_tablet:L_brw_tablet,brw_helmet:L_brw_helmet,brw_rock:L_brw_rock,brw_xray:L_brw_xray,brw_iceman:L_brw_iceman,brw_synod:L_brw_synod,brw_agincourt:L_brw_agincourt};
  (SPEC.concepts||[]).forEach((c,i)=>{const g=mk('t'+(i+1));L[c.layout](g,c)});window.DONE=true;});
 </script></body></html>
