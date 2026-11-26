@@ -15,6 +15,7 @@ import * as BZ from './bronze.js';
 import * as GR from './greece.js';
 import * as IN from './india.js';
 import * as AL from './alps.js';
+import * as SY from './synod.js';
 import { CHANNEL } from './channel.js';
 export const ACC = '#f07a1a', INK = '#141414', W = () => E.W, H = () => E.H;
 export const CAST = { QUIET: { item: 'scarf' }, LOUD: { items: ['tie', 'hair'] }, FRIEND: { items: ['bun'] }, BOSS: { items: ['tie', 'glasses'] }, LINCOLN: { items: ['tophat'] }, LINCOLNBARE: {}, MARY: { items: ['dress', 'ponytail'] }, BOOTH: { items: ['slouch'] }, RATHBONE: { items: ['kepi'] }, SOLDIER: { items: ['kepi'] }, SEWARD: { items: ['jawframe'] }, POWELL: {}, JOHNSON: { items: ['glasses'] }, SHERMAN: { items: ['kepi'] }, WOMAN: { items: ['dress', 'ponytail'] }, YOU: { item: 'scarf' }, SENECA: { items: ['toga'] }, NERO: { items: ['toga', 'laurel'], trim: R.purple }, CLAUDIUS: { items: ['toga', 'laurel'], trim: R.red }, PAULINUS: { items: ['toga'], trim: R.gold },
@@ -30,6 +31,7 @@ const SETS = { forum, study, island, palace, port, garden, bedroom: (g, t, c, o)
   theatre: Q.theatre, box: Q.box, corridor: Q.corridor, dcstreet: Q.dcstreet, room: Q.room, bar: Q.bar, whitehouse: Q.whitehouse, capitol: Q.capitol, congress: Q.congress, train: Q.train, coast: Q.coast, town: Q.town, field: Q.field,
   europemap: (g) => CX.europeMap(g),
   emed: (g, t, c, o) => BZ.emedMap(g, t, c, o), harbour: BZ.harbour, citadel: BZ.citadel, pylon: BZ.pylon, drought: BZ.drought, cliffs: BZ.cliffs, pass: GR.pass, ridge: GR.ridge, camp: GR.camp, acropolis: GR.acropolis, plain: GR.plain, hill: GR.hill, india: (g, t, c, o) => IN.indiaMap(g, t, c, o), court: IN.court, plainindia: IN.plainIndia, alps: AL.alps, coldroom: AL.coldroom, evidence: AL.evidence,
+  basilica: SY.basilica, crypt: SY.crypt, tiber: SY.tiber, prison: SY.prison, stpeters: SY.stpeters, italy: (g, t, c, o) => SY.italy(g, t, c, o),
   stormsea: AN.stormsea, seabed: AN.seabed, museum: AN.museum, greecemap: (g) => AN.greeceMap(g),
   techoffice: TC.techoffice, oldlab: TC.oldlab,
   mall: SH.mall, cinema: SH.cinema, checkout: SH.checkout, forest: SH.forest,
@@ -254,7 +256,7 @@ export function shot(id, spec) { registerShot(id, { draw(g, t, info) { const cz 
   const figGY = r.GY ?? gy; const figs = spec.figs || [];
   if (['board', 'parch', 'dark', 'map', 'split'].includes(set) || spec.blur) figs.forEach((d) => drawFig(g, t, info, d, figGY)); else layer(g, cam, 1, (g) => figs.forEach((d) => drawFig(g, t, info, d, figGY)));
   if (r.fg) layer(g, cam, 1, r.fg);
-  if (!['board', 'split', 'dark', 'stage', 'parch', 'map', 'cinema', 'drought', 'emed', 'india'].includes(set) && spec.band !== false && (spec.fx || []).some((o) => ['title', 'label', 'serif', 'pill', 'bubble', 'stamp', 'meter'].includes(o.t) && (o.y ?? 999) < 340)) { const gr = g.createLinearGradient(0, 0, 0, 400); gr.addColorStop(0, 'rgba(250,248,244,0.94)'); gr.addColorStop(0.62, 'rgba(250,248,244,0.82)'); gr.addColorStop(1, 'rgba(250,248,244,0)'); g.fillStyle = gr; g.fillRect(0, 0, E.W, 400); }
+  if (!['board', 'split', 'dark', 'stage', 'parch', 'map', 'cinema', 'drought', 'emed', 'india', 'italy'].includes(set) && spec.band !== false && (spec.fx || []).some((o) => ['title', 'label', 'serif', 'pill', 'bubble', 'stamp', 'meter'].includes(o.t) && (o.y ?? 999) < 340)) { const gr = g.createLinearGradient(0, 0, 0, 400); gr.addColorStop(0, 'rgba(250,248,244,0.94)'); gr.addColorStop(0.62, 'rgba(250,248,244,0.82)'); gr.addColorStop(1, 'rgba(250,248,244,0)'); g.fillStyle = gr; g.fillRect(0, 0, E.W, 400); }
   (spec.fx || []).forEach((o) => { const f = OV[o.t]; if (f) { g.save(); f(g, t, info, o); g.restore(); } });
   if (E.styleId === 'noir') { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); noir(g, !['dark', 'stage', 'cinema'].includes(set)); g.restore(); }
 } }); }
